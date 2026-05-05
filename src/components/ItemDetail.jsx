@@ -8,13 +8,14 @@ import { Link } from 'react-router-dom'
 //2. EL CONTEXTO QUE QUIERO UTILIZAR
 
 const ItemDetail = ({detail}) => {
-  const {addItem} = useContext(CartContext)
+  const {addItem, itemQty} = useContext(CartContext)
   const [purchase, setPurchase]= useState(false)
   
   const onAdd = (cantidad)=>{
    addItem(detail,cantidad )
    setPurchase(true)
   }
+  const stockActualizado = detail.stock - itemQty(detail.id)
   return (
     <div style={{
         textAlign: 'center',
@@ -28,13 +29,13 @@ const ItemDetail = ({detail}) => {
         <img src={detail.img} alt={detail.name}/>
         <p>{detail.description}</p>
         <p>${detail.price},00</p>
-        <p>Stock disponible: {detail.stock} unidades</p>
+        <p>Stock disponible: {stockActualizado} unidades</p>
        {purchase 
        ? <div style={{display:'flex', justifyContent:'space-around', alignItems:'center', width:'80%'}}>
           <Link className='btn btn-dark' to='/'>Seguir Comprando</Link>
           <Link className='btn btn-dark' to='/cart'>Ir al carrito</Link>
        </div> 
-       : <ItemCount stock={detail.stock} onAdd={onAdd}/>}
+       : <ItemCount stock={stockActualizado} onAdd={onAdd}/>}
     </div>
   )
 }

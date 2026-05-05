@@ -1,10 +1,10 @@
 import { useState, useEffect } from "react"
-import { getProducts } from "../mock/asyncData"
+import { getProducts, productos } from "../mock/asyncData"
 import ItemList from "./ItemList"
 import { useParams } from "react-router-dom"
 import Input from "../examples/Input"
 import Loader from "./Loader"
-import { collection, getDocs, query, where } from "firebase/firestore"
+import { addDoc, collection, getDocs, query, where } from "firebase/firestore"
 import { db } from "../service/firebase"
 const ItemListContainer = ({greeting, saludo})=> {
     const [data, setData]= useState([])
@@ -53,6 +53,13 @@ const ItemListContainer = ({greeting, saludo})=> {
     //  console.log(type)
     
     // console.log('ItemListContainer')
+
+    //DESPUES SE BORRA!!!!!!
+    // const subirData = ()=> {
+    //     console.log('SUBIENDO DATA.....')
+    //     const colSubir = collection(db, 'items')
+    //     productos.map((prod)=> addDoc(colSubir, prod))
+    // }
   
     return(
         <>
@@ -64,6 +71,8 @@ const ItemListContainer = ({greeting, saludo})=> {
             <ItemList data={data}/>
         </>
         }
+        {/* DESPUES LO BORRO */}
+        {/* <button className="btn btn-danger" onClick={subirData}>SUBIR DATA</button> */}
         </>
        
     )

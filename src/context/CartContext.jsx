@@ -1,4 +1,4 @@
-import { useState, createContext} from "react";
+import { useState, createContext, useEffect} from "react";
 
 
 //1. Creamos el contexto
@@ -7,8 +7,17 @@ export const CartContext = createContext()
 
 //2. Creamos al proveedor
 
+const carritoLS= JSON.parse(localStorage.getItem('carrito')) || []
+
 export const CartProvider = ({children})=> {
-    const [cart, setCart]= useState([])
+    const [cart, setCart]= useState(carritoLS)
+
+
+    useEffect(()=>{
+        localStorage.setItem('carrito', JSON.stringify(cart))
+    }, [cart])
+
+
 
     //herramientas para poder interactuar con el carrito 
     //agregar un prod al carrito
@@ -56,6 +65,8 @@ export const CartProvider = ({children})=> {
     const total = ()=> {
         return cart.reduce((acc, prod)=> acc += (prod.quantity * prod.price),0)
     }
+
+
       const totalConImp = ()=> {
         return cart.reduce((acc, prod)=> acc += (prod.quantity * prod.price),1.5)
     }
@@ -64,8 +75,21 @@ export const CartProvider = ({children})=> {
         return cart.reduce((acc, prod)=> acc += prod.quantity, 0)
     }
 
+    //descontar stock local
+    const itemQty = (id)=> {
+        const itemInCart = cart.find((prod)=> prod.id === id)
+
+        if(itemInCart){
+            return itemInCart.quantity
+        }else{
+            //no existe
+            return 0
+        }
+
+    }
+
     return(
-        <CartContext.Provider value={{cart, clear, addItem, removeItem, total, totalQuantity, totalConImp}}>
+        <CartContext.Provider value={{cart, clear, addItem, removeItem, total, totalQuantity, totalConImp, itemQty}}>
             {children}
         </CartContext.Provider>
     )

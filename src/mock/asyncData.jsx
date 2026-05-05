@@ -1,15 +1,15 @@
-const productos= [
-    {
-        id:'01',//NO LO SUBIMOS A FIREBASE
-        name:'Random 1',
-        description: 'Lorem, ipsum dolor sit amet consectetur adipisicing elit. Consequuntur nesciunt voluptates optio modi impedit! Sequi, corrupti. Quaerat, vero? Quis iure quod, ea impedit totam optio magnam! Aut omnis nihil consequuntur!',
-        stock:20,
-        price:25000,
-        category:'nuevos',
-        img:'https://picsum.photos/200'
-    },
+export const productos= [
+    // {
+    //     id:'01',//NO LO SUBIMOS A FIREBASE
+    //     name:'Random 1',
+    //     description: 'Lorem, ipsum dolor sit amet consectetur adipisicing elit. Consequuntur nesciunt voluptates optio modi impedit! Sequi, corrupti. Quaerat, vero? Quis iure quod, ea impedit totam optio magnam! Aut omnis nihil consequuntur!',
+    //     stock:20,
+    //     price:25000,
+    //     category:'nuevos',
+    //     img:'https://picsum.photos/200'
+    // },
         {
-        id:'02',
+        // id:'02',
         name:'Random 2',
         description: 'Lorem, ipsum dolor sit amet consectetur adipisicing elit. Consequuntur nesciunt voluptates optio modi impedit! Sequi, corrupti. Quaerat, vero? Quis iure quod, ea impedit totam optio magnam! Aut omnis nihil consequuntur!',
         stock:50,
@@ -18,7 +18,7 @@ const productos= [
         img:'../img/darth-vader.png'
     },
      {
-        id:'03',
+        // id:'03',
         name:'Random 3',
         description: 'Lorem, ipsum dolor sit amet consectetur adipisicing elit. Consequuntur nesciunt voluptates optio modi impedit! Sequi, corrupti. Quaerat, vero? Quis iure quod, ea impedit totam optio magnam! Aut omnis nihil consequuntur!',
         stock:20,
@@ -27,7 +27,7 @@ const productos= [
         img:'https://i.postimg.cc/qRC9NHLx/D-NQ-NP-2X-790947-MLU74201862127-012024-F.webp'
     },
     {
-        id:'04',
+        // id:'04',
         name:'Random 4',
         description: 'Lorem, ipsum dolor sit amet consectetur adipisicing elit. Consequuntur nesciunt voluptates optio modi impedit! Sequi, corrupti. Quaerat, vero? Quis iure quod, ea impedit totam optio magnam! Aut omnis nihil consequuntur!',
         stock:15,
