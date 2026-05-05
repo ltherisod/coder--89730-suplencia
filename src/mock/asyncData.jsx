@@ -1,6 +1,6 @@
 const productos= [
     {
-        id:'01',
+        id:'01',//NO LO SUBIMOS A FIREBASE
         name:'Random 1',
         description: 'Lorem, ipsum dolor sit amet consectetur adipisicing elit. Consequuntur nesciunt voluptates optio modi impedit! Sequi, corrupti. Quaerat, vero? Quis iure quod, ea impedit totam optio magnam! Aut omnis nihil consequuntur!',
         stock:20,
